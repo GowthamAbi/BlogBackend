@@ -2,6 +2,10 @@ import express from 'express'
 import 'dotenv/config'
 import cors from 'cors'
 import connectedDB from './config/db.js'
+import authRouter from './Routes/auth.js'
+
+
+
 
 const app=express()
 await connectedDB()
@@ -11,9 +15,7 @@ app.use(cors())
 app.use(express.json())
 
 //Routes
-app.get('/',(req,res)=>{
-res.send("API is Working")
-})
+app.use('/',authRouter)
 
 //Port
 const PORT=process.env.PORT||3000
