@@ -1,10 +1,10 @@
 import express from 'express'
-import { addBlog } from '../Controller/addBlog'
 import upload from '../Middleware/multer'
 import auth from '../Middleware/auth'
+import { addBlogController } from '../Controller/addBlogController'
 
 const addBlog=express.Router()
 
-addBlog.post('/blog',auth,upload.single('image'),addBlog)
+addBlog.post('/blog',auth,upload.single('image'),addBlogController)
 
 export default addBlog

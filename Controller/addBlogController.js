@@ -1,15 +1,15 @@
-import { parse } from "dotenv"
 import fs from 'fs'
 import imagekit from "../config/imageKit.js"
 import Blog from "../Model/Blog.js"
 
-export const addBlog=async(req,res)=>{
+export const addBlogController=async(req,res)=>{
     try {
-        const blogData =await JSON.parse(req.body.blog);
+        const blogData =await JSON.parse(req.body.blog)
+        console.log(blogData)
         const {title,subTitle,description,category,isPublished}=blogData
         const imageFile=req.file
 
-        console.log(req.body.blog)
+        console.log(blogData)
 
         if (!title || !subTitle || !description || !category || !isPublished){
         
