@@ -3,6 +3,7 @@ import 'dotenv/config'
 import cors from 'cors'
 import connectedDB from './config/db.js'
 import authRouter from './Routes/auth.js'
+import { addBlog } from './Controller/addBlog.js'
 
 
 
@@ -16,6 +17,7 @@ app.use(express.json())
 
 //Routes
 app.use('/',authRouter)
+app.use('/add',addBlog)
 
 //Port
 const PORT=process.env.PORT||3000
