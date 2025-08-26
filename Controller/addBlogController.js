@@ -9,7 +9,7 @@ export const addBlogController=async(req,res)=>{
         const {title,subTitle,description,category,isPublished}=blogData
         const imageFile=req.file
 
-        console.log(req.file)
+
 
         if (!title || !subTitle || !description || !category || !isPublished){
         
@@ -27,7 +27,7 @@ export const addBlogController=async(req,res)=>{
             }
         )
 
-         console.log(response)
+
 
         const originalImageUrl=await imagekit.url({
             path:response.filePath,
@@ -41,7 +41,7 @@ export const addBlogController=async(req,res)=>{
 
         const image=originalImageUrl
 
-        console.log(image)
+
         await Blog.create({title,subTitle,description,category,isPublished,image})
         res.json({success:true,message:"Blog is Saved"})
         
@@ -78,7 +78,7 @@ export const getById=async(req,res)=>{
 
 export const deleteById=async(req,res)=>{
     try {
-         console.log("Enter id")
+     
         const {id}=req.body
        
         await Blog.findByIdAndDelete(id)

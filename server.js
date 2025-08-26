@@ -4,6 +4,7 @@ import cors from 'cors'
 import connectedDB from './config/db.js'
 import authRouter from './Routes/authRouter.js'
 import addBlog from './Routes/addBlog.js'
+import comment from './Routes/addComments.js'
 
 
 
@@ -19,6 +20,7 @@ app.use(express.json())
 app.use('/',authRouter)
 app.use('/add',addBlog)
 app.use('/get',addBlog)
+app.use('/comments',comment)
 
 
 
