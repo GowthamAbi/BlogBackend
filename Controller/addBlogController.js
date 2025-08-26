@@ -4,12 +4,12 @@ import Blog from "../Model/Blog.js"
 
 export const addBlogController=async(req,res)=>{
     try {
-        const blogData =await JSON.parse(req.body.blog)
-        console.log(blogData)
+        const blogData = JSON.parse(req.body.blog)
+      
         const {title,subTitle,description,category,isPublished}=blogData
         const imageFile=req.file
 
-        console.log(blogData)
+        console.log(req.file)
 
         if (!title || !subTitle || !description || !category || !isPublished){
         
@@ -38,6 +38,7 @@ export const addBlogController=async(req,res)=>{
 
         const image=originalImageUrl
 
+        console.log(image)
         await Blog.create({title,subTitle,description,category,isPublished,image})
         res.json({success:true,message:"Blog is Saved"})
         
