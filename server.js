@@ -6,9 +6,6 @@ import authRouter from './Routes/authRouter.js'
 import addBlog from './Routes/addBlog.js'
 import comment from './Routes/addComments.js'
 
-
-
-
 const app=express()
 await connectedDB()
 
@@ -18,11 +15,9 @@ app.use(express.json())
 
 //Routes
 app.use('/',authRouter)
-app.use('/add',addBlog)
-app.use('/get',addBlog)
+
+app.use('/blog',addBlog)
 app.use('/comments',comment)
-
-
 
 //Port
 const PORT=process.env.PORT||3000

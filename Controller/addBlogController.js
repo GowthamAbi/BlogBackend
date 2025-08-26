@@ -1,6 +1,8 @@
 import fs from 'fs'
 import imagekit from "../config/imageKit.js"
 import Blog from "../Model/Blog.js"
+import { create } from 'domain'
+import comments from '../Model/Comments.js'
 
 export const addBlogController=async(req,res)=>{
     try {
@@ -55,7 +57,7 @@ export const getAllBlog=async(req,res)=>{
     try {
    
 
-        const allBlog=await Blog.find({})
+        const allBlog=await Blog.find({}).sort({create:-1})
         
         res.json({success:true,allBlog})
 
@@ -65,8 +67,11 @@ export const getAllBlog=async(req,res)=>{
 }
 
 export const getById=async(req,res)=>{
+    console.log("getbyid")
     try {
+        console.log("getbyid")
         const {id}=req.parse
+        
         const blog=await Blog.findById(id)
         res.json({blog})
 
@@ -86,5 +91,36 @@ export const deleteById=async(req,res)=>{
         
     } catch (error) {
         console.log(error.message)
+    }
+}
+
+
+export const isPublish=async(req,res)=>{
+    try {
+
+        const{id}=req.body
+        const wanteddata=await Blog.findById(id)
+      wanteddata.isPublished=!wanteddata.isPublished
+
+      await wanteddata.save()
+
+        res.json({message:"Published clicked"})
+        
+    } catch (error) {
+
+         console.log(error.message)
+    }
+
+}
+
+
+export const dashBoard=async(req,res)=>{
+    try {
+        const blogs=await Blog.countDocuments({})
+        const commentsCount=await comments.countDocuments({})
+        res.json({blog:blogs ,commentsCount:commentsCount})
+
+    } catch (error) {
+         console.log(error.message)
     }
 }
