@@ -18,6 +18,8 @@ app.use(express.json())
 //Routes
 app.use('/',authRouter)
 app.use('/add',addBlog)
+app.use('/get',addBlog)
+
 
 //Port
 const PORT=process.env.PORT||3000

@@ -49,3 +49,41 @@ export const addBlogController=async(req,res)=>{
         console.log(error.message)
     }
 }
+
+
+export const getAllBlog=async(req,res)=>{
+    try {
+   
+
+        const allBlog=await Blog.find({})
+        
+        res.json({success:true,allBlog})
+
+    } catch (error) {
+            res.json({success:false,message:"No Blog"})
+    }
+}
+
+export const getById=async(req,res)=>{
+    try {
+        const {id}=req.parse
+        const blog=await Blog.findById(id)
+        res.json({blog})
+
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
+export const deleteById=async(req,res)=>{
+    try {
+         console.log("Enter id")
+        const {id}=req.parse
+       
+        await Blog.deleteById(id)
+         res.json({message:"Deleted"})
+        
+    } catch (error) {
+        console.log(error.message)
+    }
+}
