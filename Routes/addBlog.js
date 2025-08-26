@@ -8,6 +8,7 @@ const addBlog=express.Router()
 addBlog.post('/blog',auth,upload.single('image'),addBlogController)
 addBlog.get("/blog",getAllBlog)
 addBlog.get("/blog/:id",getById)
-addBlog.delete("/blog/:id",deleteById)
 
+
+addBlog.delete("/blog/:id",deleteById)
 export default addBlog

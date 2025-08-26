@@ -75,12 +75,13 @@ export const getById=async(req,res)=>{
     }
 }
 
+
 export const deleteById=async(req,res)=>{
     try {
          console.log("Enter id")
-        const {id}=req.parse
+        const {id}=req.body
        
-        await Blog.deleteById(id)
+        await Blog.findByIdAndDelete(id)
          res.json({message:"Deleted"})
         
     } catch (error) {
