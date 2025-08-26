@@ -6,7 +6,7 @@ const connectedDB=async()=>{
  
         mongoose.connection.on('connected',()=>console.log("Data Base is Connected")
         )
-       await mongoose.connect(`${process.env.MONGODB_URI}/quickblog`)
+       await mongoose.connect(`${process.env.MONGODB_URI}`)
       
     }
     catch(err){

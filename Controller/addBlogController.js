@@ -17,6 +17,7 @@ export const addBlogController=async(req,res)=>{
         }
 
         const fileBuffer=fs.readFileSync(imageFile.path)
+       
 
         const response=await imagekit.upload(
             {
@@ -25,6 +26,8 @@ export const addBlogController=async(req,res)=>{
                 folder:"/blogs"
             }
         )
+
+         console.log(response)
 
         const originalImageUrl=await imagekit.url({
             path:response.filePath,
