@@ -33,3 +33,27 @@ export const isApprove=async(req,res)=>{
     }
 
 }
+
+
+export const commentList=async(req,res)=>{
+
+    try {
+        
+      const list = await comments.find({}).sort({create:-1})
+        res.json({list})
+
+    } catch (error) {
+        console.log(error.message)
+    }
+
+}
+
+export const deleteComment=async(req,res)=>{
+    try {
+        const{id}=req.body
+        await comments.findByIdAndDelete(id)
+        res.json({message:"deleted"})
+    } catch (error) {
+        console.log(error.message)
+    }
+}
