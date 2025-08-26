@@ -16,16 +16,16 @@ export const commentController=async(req,res)=>{
     }
 }
 
-export const isPublished=async(req,res)=>{
+export const isApprove=async(req,res)=>{
     try {
 
         const{id}=req.body
         const wanteddata=await comments.findById(id)
-      wanteddata.publised=!wanteddata.publised
+      wanteddata.approve=!wanteddata.approve
 
       await wanteddata.save()
 
-        res.json({message:"publised clicked"})
+        res.json({message:"approve clicked"})
         
     } catch (error) {
 
