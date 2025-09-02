@@ -10,10 +10,20 @@ const app=express()
 await connectedDB()
 
 //Middleware
-app.use(cors())
+
+const corsOptions = {
+  origin: [
+    "http://localhost:5173",
+    "http://localhost:3000"
+  ],
+  methods: "GET,POST,PUT,DELETE",
+  credentials: true,
+};
+
+app.use(cors(corsOptions))
 app.use(express.json())
 
-//Routes
+//Route
 app.use('/',authRouter)
 
 app.use('/blog',addBlog)

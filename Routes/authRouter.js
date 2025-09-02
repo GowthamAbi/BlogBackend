@@ -4,7 +4,7 @@ import { addBlogController } from "../Controller/addBlogController.js"
 
 const authRouter=exprees.Router()
 
-authRouter.get("/",authController)
+authRouter.post("/adminlogin",authController)
 
 
 export default authRouter
