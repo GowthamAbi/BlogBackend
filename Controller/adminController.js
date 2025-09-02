@@ -8,7 +8,10 @@ export const authController=async(req,res)=>{
 
         if(email!==process.env.EMAIL_ID && password!==process.env.PASSWORD)
         {
-            return res.json({success:false,message:"Invalid Credentials"})
+            return( res.json({success:false,message:"Invalid Credentials"}),
+
+            console.log("invalid")
+        )
         }
 
         const token=jwt.sign({email},process.env.SECRET_KEY)
