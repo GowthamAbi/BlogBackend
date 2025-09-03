@@ -10,6 +10,6 @@ addBlog.get("/get",getAllBlog)
 addBlog.get("/get/:id",getById)
 addBlog.delete("/delete/:id",deleteById)
 addBlog.post("/publish/:id",isPublish)
-addBlog.get("/dashbord",dashBoard)
+addBlog.get("/admin/dashbord",auth,dashBoard)
 
 export default addBlog
