@@ -1,10 +1,11 @@
 import exprees from "express"
 import {authController} from "../Controller/adminController.js"
 import { addBlogController } from "../Controller/addBlogController.js"
+import { passwordCheck } from "../Middleware/auth.js"
 
 const authRouter=exprees.Router()
 
-authRouter.post("/adminlogin",authController)
+authRouter.post("/adminlogin",passwordCheck,authController)
 
 
 export default authRouter
