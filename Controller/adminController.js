@@ -31,3 +31,8 @@ export const authController=async(req,res)=>{
 
 }
 
+
+export const logout=()=>{
+    
+}
+

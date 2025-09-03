@@ -6,6 +6,7 @@ import { passwordCheck } from "../Middleware/auth.js"
 const authRouter=exprees.Router()
 
 authRouter.post("/adminlogin",passwordCheck,authController)
+authRouter.post("/logout",passwordCheck,authController)
 
 
 export default authRouter
