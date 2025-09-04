@@ -7,8 +7,13 @@ import comments from '../Model/Comments.js'
 export const addBlogController=async(req,res)=>{
     console.log("Enter add blog")
     try {
+
+        console.log("Raw req.body:", req.body);
+        console.log("Raw req.file:", req.file);
+
         const blogData = JSON.parse(req.body.blog)
-      
+       console.log("📝 Blog Data:", blogData);
+    console.log("📸 File Info:", req.file);
         const {title,subTitle,description,category,isPublished}=blogData
         const imageFile=req.file
 

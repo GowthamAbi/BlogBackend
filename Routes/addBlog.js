@@ -5,7 +5,7 @@ import { addBlogController,dashBoard,deleteById,getAllBlog, getById, isPublish }
 
 const addBlog=express.Router()
 
-addBlog.post('/add',auth,upload.single('image'),addBlogController)
+addBlog.post('/add',auth,upload.single("image"),addBlogController)
 addBlog.get("/get",getAllBlog)
 addBlog.get("/get/:id",getById)
 addBlog.delete("/delete/:id",deleteById)
