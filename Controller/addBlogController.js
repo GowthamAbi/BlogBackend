@@ -5,13 +5,14 @@ import { create } from 'domain'
 import comments from '../Model/Comments.js'
 
 export const addBlogController=async(req,res)=>{
+    console.log("Enter add blog")
     try {
         const blogData = JSON.parse(req.body.blog)
       
         const {title,subTitle,description,category,isPublished}=blogData
         const imageFile=req.file
 
-
+console.log(blogData)
 
         if (!title || !subTitle || !description || !category || !isPublished){
         
