@@ -29,7 +29,7 @@ app.use(express.json())
 app.use('/',authRouter)
 app.use('/admin/dashboard',dashBoard)
 app.use('/blog',addBlog)
-app.use('/comments',comment)
+app.use(`/comments/:id`,comment)
 
 //Port
 const PORT=process.env.PORT||3000

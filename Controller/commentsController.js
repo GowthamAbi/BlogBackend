@@ -2,12 +2,16 @@ import comments from "../Model/Comments.js"
 
 export const commentController=async(req,res)=>{
     try {
+        const { id } = req.params; 
         const{name,comment}=req.body
+        console.log({id})
+
         if(!name && !comment){
             return res.json({Success:false , message:"Enter Remaining Details"})
         }
 
-        const saved=await comments.create({name,comment})
+        const saved=await comments.create({blog_id: id,name,comment})
+
 
         res.json({saved})
         console.log("Your Commets Saved",saved)
