@@ -10,6 +10,7 @@ export const commentController=async(req,res)=>{
         const saved=await comments.create({name,comment})
 
         res.json({saved})
+        console.log("Your Commets Saved",saved)
 
     } catch (error) {
         console.log(error.message)

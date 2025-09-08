@@ -5,6 +5,8 @@ import connectedDB from './config/db.js'
 import authRouter from './Routes/authRouter.js'
 import addBlog from './Routes/addBlog.js'
 import comment from './Routes/addComments.js'
+import dashBoard from './Routes/dashBoard.js'
+
 
 const app=express()
 await connectedDB()
@@ -25,7 +27,7 @@ app.use(express.json())
 
 //Route
 app.use('/',authRouter)
-
+app.use('/admin/dashboard',dashBoard)
 app.use('/blog',addBlog)
 app.use('/comments',comment)
 
