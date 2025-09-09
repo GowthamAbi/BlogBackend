@@ -3,7 +3,7 @@ import { commentController, commentList, deleteComment, isApprove } from '../Con
 
 const comment=express.Router()
 
-comment.post('/',commentController)
+comment.post('/add',commentController)
 comment.post('/click',isApprove)
 comment.get('/list',commentList)
 comment.delete('/delete',deleteComment)

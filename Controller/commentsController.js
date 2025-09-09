@@ -2,9 +2,8 @@ import comments from "../Model/Comments.js"
 
 export const commentController=async(req,res)=>{
     try {
-        const { id } = req.params; 
-        const{name,comment}=req.body
-        console.log({id})
+  
+        const{name,comment,id}=req.body
 
         if(!name && !comment){
             return res.json({Success:false , message:"Enter Remaining Details"})
@@ -46,6 +45,7 @@ export const commentList=async(req,res)=>{
         
       const list = await comments.find({}).sort({create:-1})
         res.json({list})
+        console.log("this is comment:" +list)
 
     } catch (error) {
         console.log(error.message)
