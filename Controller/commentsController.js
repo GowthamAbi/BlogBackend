@@ -48,7 +48,7 @@ export const commentList=async(req,res)=>{
         console.log("this is comment:" +list)
 
     } catch (error) {
-        console.log(error.message)
+        console.log("Error in Comments bcd")
     }
 
 }
