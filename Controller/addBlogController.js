@@ -62,9 +62,10 @@ console.log(blogData)
 export const getAllBlog=async(req,res)=>{
     try {
    
-
+        console.log("Your are Enter in GetAllBlog")
         const allBlog=await Blog.find({}).sort({create:-1})
         
+   
         res.json({success:true,allBlog})
 
     } catch (error) {
