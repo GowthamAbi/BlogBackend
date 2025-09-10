@@ -6,7 +6,8 @@ const blogSchema=new mongoose.Schema({
     description:{type:String,require:true},
     category:{type:String,require:true},
     image:{type:String,require:true},
-    isPublished:{type:Boolean,require:true}
+    isPublished:{type:Boolean,require:true},
+    createdAt: { type: Date,default: Date.now }
 
 })
 

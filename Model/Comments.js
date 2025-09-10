@@ -8,7 +8,8 @@ const commentSchema=new mongoose.Schema({
   },
     name:{type:String,require:true},
     comment:{type:String,require:true},
-    approve:{type:Boolean,default:false}
+    approve:{type:Boolean,default:false},
+    createdAt: { type: Date,default: Date.now }
 
 })
 
