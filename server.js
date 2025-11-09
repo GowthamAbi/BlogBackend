@@ -15,7 +15,7 @@ await connectedDB()
 
 const corsOptions = {
   origin: [
-    "https://gowthamblogs.netlify.app/"||"http://localhost:5173"
+    "https://gowthamblogs.netlify.app/","http://localhost:5173"
   ],
   methods: "GET,POST,PUT,DELETE",
   credentials: true,
